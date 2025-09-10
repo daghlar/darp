@@ -28,10 +28,12 @@ darp/
 │   ├── config/         # Configuration management
 │   ├── network/        # Network diagnostics and optimization
 │   └── warp/           # Cloudflare WARP integration
-├── internal/
-│   ├── api/            # Internal API utilities
-│   └── utils/          # Common utilities
+├── internal/           # Internal utilities (reserved for future use)
+├── build/              # Build output directory
 ├── build.sh            # Build automation script
+├── Makefile            # Development commands
+├── go.mod              # Go module definition
+├── LICENSE             # MIT License
 └── README.md           # This file
 ```
 
