@@ -52,7 +52,7 @@ darp/
 
 ```bash
 # Download the latest release
-wget https://github.com/daghlar/darp/releases/latest/download/darp-latest.tar.gz
+curl -L -O https://github.com/daghlar/darp/releases/latest/download/darp-latest.tar.gz
 
 # Extract and install
 tar -xzf darp-latest.tar.gz
@@ -305,9 +305,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/darp/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/darp/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/darp/wiki)
+- **Issues**: [GitHub Issues](https://github.com/daghlar/darp/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/daghlar/darp/discussions)
+- **Documentation**: [Wiki](https://github.com/daghlar/darp/wiki)
 
 ---
 
