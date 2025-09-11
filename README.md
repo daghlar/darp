@@ -64,7 +64,7 @@ sudo ./install.sh
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/darp.git
+git clone https://github.com/daghlar/darp.git
 cd darp
 
 # Make build script executable
