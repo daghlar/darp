@@ -3,6 +3,7 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
+	"os/user"
 	"strings"
 	"time"
 
@@ -24,6 +25,9 @@ func (c *CLI) setupCommands() {
 		Use:   "darp",
 		Short: "DARP - Cloudflare WARP client for Arch Linux",
 		Long:  "A modular Cloudflare WARP client designed specifically for Arch Linux with advanced networking features.",
+		Run: func(cmd *cobra.Command, args []string) {
+			c.showWelcome()
+		},
 	}
 
 	c.rootCmd.AddCommand(c.connectCmd())
@@ -350,6 +354,47 @@ func (c *CLI) handleOptimize() error {
 
 func (c *CLI) Execute() error {
 	return c.rootCmd.Execute()
+}
+
+func (c *CLI) showWelcome() {
+	username := c.getUsername()
+	
+	fmt.Println("┌─────────────────────────────────────────┐")
+	fmt.Println("│              DARP v1.0.0                │")
+	fmt.Println("│        Cloudflare WARP Client          │")
+	fmt.Println("├─────────────────────────────────────────┤")
+	fmt.Printf("│ Merhaba %-30s │\n", username+"!")
+	fmt.Println("├─────────────────────────────────────────┤")
+	fmt.Println("│ DARP - Arch Linux için özel olarak     │")
+	fmt.Println("│ tasarlanmış modüler Cloudflare WARP    │")
+	fmt.Println("│ istemcisi. API anahtarı gerektirmez!   │")
+	fmt.Println("├─────────────────────────────────────────┤")
+	fmt.Println("│ Kullanılabilir komutlar:               │")
+	fmt.Println("│   darp connect    - WARP'a bağlan      │")
+	fmt.Println("│   darp status     - Durumu göster      │")
+	fmt.Println("│   darp test       - Ağ testleri        │")
+	fmt.Println("│   darp optimize   - Ağı optimize et    │")
+	fmt.Println("│   darp config     - Ayarları yönet     │")
+	fmt.Println("│   darp --help     - Yardım göster      │")
+	fmt.Println("└─────────────────────────────────────────┘")
+	fmt.Println()
+}
+
+func (c *CLI) getUsername() string {
+	currentUser, err := user.Current()
+	if err != nil {
+		return "Kullanıcı"
+	}
+	
+	username := currentUser.Username
+	if username == "" {
+		username = currentUser.Name
+	}
+	if username == "" {
+		username = "Kullanıcı"
+	}
+	
+	return username
 }
 
 func (c *CLI) Run(args []string) error {
