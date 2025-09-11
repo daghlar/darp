@@ -52,7 +52,7 @@ darp/
 
 ```bash
 # Download the latest release
-wget https://github.com/yourusername/darp/releases/latest/download/darp-latest.tar.gz
+wget https://github.com/daghlar/darp/releases/latest/download/darp-latest.tar.gz
 
 # Extract and install
 tar -xzf darp-latest.tar.gz
