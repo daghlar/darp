@@ -284,7 +284,7 @@ sudo journalctl -u darp -f
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](https://github.com/daghlar/darp/wiki/Contributing) for details.
+We welcome contributions! Please see our [Contributing Guidelines](https://github.com/daghlar/darp/blob/main/wiki/Contributing.md) for details.
 
 1. Fork the repository
 2. Create a feature branch
