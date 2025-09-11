@@ -186,7 +186,7 @@ sudo journalctl -u darp -f
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/darp.git
+git clone https://github.com/daghlar/darp.git
 cd darp
 
 # Install dependencies
