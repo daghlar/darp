@@ -14,12 +14,13 @@ Welcome to the DARP (Arch Linux Router Protocol) documentation wiki! This compre
 
 ## 🚀 Quick Start
 
-DARP is a modular Cloudflare WARP client designed specifically for Arch Linux. It provides:
+DARP is a lightweight, modular Cloudflare WARP client designed specifically for Arch Linux. It provides:
 
 - **No API Required**: Works directly with WireGuard
-- **High Performance**: Optimized for Arch Linux
+- **Lightweight**: Only 6 Go files, ~1,000 lines of code
 - **Modular Architecture**: Clean, maintainable codebase
-- **Advanced Monitoring**: Real-time network diagnostics
+- **Network Diagnostics**: Real-time connectivity testing and performance monitoring
+- **Personalized CLI**: Welcome messages with user recognition
 
 ### Installation
 
@@ -39,6 +40,9 @@ sudo ./install.sh
 ### Basic Usage
 
 ```bash
+# Show welcome message and available commands
+darp
+
 # Connect to WARP
 sudo darp connect
 

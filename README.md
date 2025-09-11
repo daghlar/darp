@@ -4,19 +4,19 @@
 [![Arch Linux](https://img.shields.io/badge/Arch%20Linux-Supported-blue.svg)](https://archlinux.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**DARP** (DARP - Arch Linux Router Protocol) is a modular, high-performance Cloudflare WARP client specifically designed for Arch Linux. It provides seamless integration with Cloudflare's WARP service using WireGuard technology.
+**DARP** (Arch Linux Router Protocol) is a lightweight, modular Cloudflare WARP client specifically designed for Arch Linux. It provides seamless integration with Cloudflare's WARP service using WireGuard technology without requiring API keys.
 
 ## ✨ Features
 
-- 🚀 **High Performance**: Optimized for Arch Linux with BBR congestion control
+- 🚀 **Lightweight**: Only 6 Go files, ~1,000 lines of clean code
 - 🔧 **Modular Architecture**: Clean, maintainable codebase with separate modules
 - 🛡️ **Secure**: Uses WireGuard for encrypted tunneling
-- 📊 **Advanced Monitoring**: Real-time network diagnostics and performance metrics
+- 📊 **Network Diagnostics**: Real-time connectivity testing and performance monitoring
 - 🎯 **Easy Configuration**: JSON-based configuration with sensible defaults
-- 🔄 **Auto-reconnection**: Automatic reconnection on network changes
-- 📱 **CLI Interface**: Intuitive command-line interface with multiple output formats
+- 📱 **CLI Interface**: Intuitive command-line interface with personalized welcome messages
 - 🐧 **Arch Linux Optimized**: Specifically tuned for Arch Linux networking stack
 - 🔑 **No API Required**: Works without Cloudflare API keys
+- ⚡ **Quick Setup**: Get running in minutes, not hours
 
 ## 🏗️ Architecture
 
@@ -43,7 +43,7 @@ darp/
 
 - Arch Linux (or compatible distribution)
 - Go 1.21+ (for building from source)
-- WireGuard tools
+- WireGuard tools (`sudo pacman -S wireguard-tools`)
 - Root privileges (for network configuration)
 
 ### Installation
@@ -106,6 +106,9 @@ sudo ./install.sh
 ### Command Line Interface
 
 ```bash
+# Show welcome message and available commands
+darp
+
 # Connect to WARP
 sudo darp connect
 
@@ -239,12 +242,13 @@ go test ./pkg/warp/...
 
 DARP is optimized for high performance on Arch Linux:
 
-- **BBR Congestion Control**: Automatic TCP optimization
-- **Buffer Tuning**: Optimized network buffer sizes
-- **WireGuard Integration**: Native WireGuard performance
-- **Memory Efficient**: Minimal memory footprint
+- **BBR Congestion Control**: Automatic TCP optimization via `sysctl`
+- **Buffer Tuning**: Optimized network buffer sizes (128MB)
+- **WireGuard Integration**: Direct WireGuard config generation
+- **Memory Efficient**: Minimal memory footprint (~10MB)
 - **Fast Startup**: Quick connection establishment
 - **No API Overhead**: Direct WireGuard connection without API calls
+- **Network Diagnostics**: Built-in latency testing and connectivity checks
 
 ## 🛠️ Troubleshooting
 

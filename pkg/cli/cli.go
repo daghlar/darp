@@ -358,7 +358,7 @@ func (c *CLI) Execute() error {
 
 func (c *CLI) showWelcome() {
 	username := c.getUsername()
-	
+
 	fmt.Println("┌─────────────────────────────────────────┐")
 	fmt.Println("│              DARP v1.0.0                │")
 	fmt.Println("│        Cloudflare WARP Client          │")
@@ -385,7 +385,7 @@ func (c *CLI) getUsername() string {
 	if err != nil {
 		return "User"
 	}
-	
+
 	username := currentUser.Username
 	if username == "" {
 		username = currentUser.Name
@@ -393,7 +393,7 @@ func (c *CLI) getUsername() string {
 	if username == "" {
 		username = "User"
 	}
-	
+
 	return username
 }
 

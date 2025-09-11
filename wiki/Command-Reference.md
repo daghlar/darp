@@ -19,6 +19,16 @@ darp [command] [options]
 
 ## Commands
 
+### darp (default)
+
+Shows welcome message and available commands.
+
+```bash
+darp
+```
+
+**Description**: Displays a personalized welcome message with user recognition and lists all available commands.
+
 ### connect
 
 Establishes a connection to Cloudflare WARP.
@@ -313,25 +323,28 @@ sudo journalctl -u darp --since "1 hour ago"
 ### Complete Workflow
 
 ```bash
-# 1. Check current status
+# 1. Show welcome message and available commands
+darp
+
+# 2. Check current status
 darp status
 
-# 2. Run connectivity tests
+# 3. Run connectivity tests
 darp test connectivity
 
-# 3. Connect to WARP
+# 4. Connect to WARP
 sudo darp connect
 
-# 4. Check status again
+# 5. Check status again
 darp status
 
-# 5. Test latency
+# 6. Test latency
 darp test latency
 
-# 6. Optimize network
+# 7. Optimize network
 sudo darp optimize
 
-# 7. Disconnect when done
+# 8. Disconnect when done
 sudo darp disconnect
 ```
 

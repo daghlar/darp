@@ -6,14 +6,16 @@ Common questions and answers about DARP.
 
 ### What is DARP?
 
-DARP (Arch Linux Router Protocol) is a modular, high-performance Cloudflare WARP client specifically designed for Arch Linux. It provides seamless integration with Cloudflare's WARP service using WireGuard technology.
+DARP (Arch Linux Router Protocol) is a lightweight, modular Cloudflare WARP client specifically designed for Arch Linux. It provides seamless integration with Cloudflare's WARP service using WireGuard technology without requiring API keys.
 
 ### Why use DARP instead of the official Cloudflare WARP client?
 
 - **No API required**: Works without Cloudflare API keys
+- **Lightweight**: Only 6 Go files, ~1,000 lines of code
 - **Arch Linux optimized**: Specifically tuned for Arch Linux
 - **Modular architecture**: Clean, maintainable codebase
-- **Advanced monitoring**: Real-time network diagnostics
+- **Network diagnostics**: Real-time connectivity testing and performance monitoring
+- **Personalized CLI**: Welcome messages with user recognition
 - **Open source**: Full control over the code
 
 ### Is DARP free to use?
@@ -100,6 +102,13 @@ darp config set logging.output "/var/log/darp.log"
 ```
 
 ## Usage Questions
+
+### How do I get started with DARP?
+
+```bash
+# Show welcome message and available commands
+darp
+```
 
 ### How do I connect to WARP?
 
