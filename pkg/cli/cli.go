@@ -148,30 +148,30 @@ func (c *CLI) optimizeCmd() *cobra.Command {
 
 func (c *CLI) handleConnect() error {
 	fmt.Println("🔗 Connecting to Cloudflare WARP...")
-	
+
 	time.Sleep(2 * time.Second)
-	
+
 	fmt.Println("✅ Successfully connected to Cloudflare WARP")
 	return nil
 }
 
 func (c *CLI) handleDisconnect() error {
 	fmt.Println("🔌 Disconnecting from Cloudflare WARP...")
-	
+
 	time.Sleep(1 * time.Second)
-	
+
 	fmt.Println("✅ Successfully disconnected from Cloudflare WARP")
 	return nil
 }
 
 func (c *CLI) handleStatus(format string) error {
 	status := map[string]interface{}{
-		"connected": true,
-		"interface": "warp0",
-		"ip_address": "10.0.0.1",
-		"dns_servers": []string{"1.1.1.1", "1.0.0.1"},
-		"uptime": "2h 15m",
-		"bytes_sent": "1.2 GB",
+		"connected":      true,
+		"interface":      "warp0",
+		"ip_address":     "10.0.0.1",
+		"dns_servers":    []string{"1.1.1.1", "1.0.0.1"},
+		"uptime":         "2h 15m",
+		"bytes_sent":     "1.2 GB",
 		"bytes_received": "3.4 GB",
 	}
 
@@ -193,7 +193,7 @@ func (c *CLI) printStatusTable(status map[string]interface{}) {
 	fmt.Println("┌─────────────────────────────────────────┐")
 	fmt.Println("│              DARP Status                │")
 	fmt.Println("├─────────────────────────────────────────┤")
-	
+
 	if connected, ok := status["connected"].(bool); ok {
 		statusText := "❌ Disconnected"
 		if connected {
@@ -201,31 +201,31 @@ func (c *CLI) printStatusTable(status map[string]interface{}) {
 		}
 		fmt.Printf("│ Status: %-30s │\n", statusText)
 	}
-	
+
 	if iface, ok := status["interface"].(string); ok {
 		fmt.Printf("│ Interface: %-27s │\n", iface)
 	}
-	
+
 	if ip, ok := status["ip_address"].(string); ok {
 		fmt.Printf("│ IP Address: %-25s │\n", ip)
 	}
-	
+
 	if dns, ok := status["dns_servers"].([]string); ok {
 		fmt.Printf("│ DNS Servers: %-23s │\n", strings.Join(dns, ", "))
 	}
-	
+
 	if uptime, ok := status["uptime"].(string); ok {
 		fmt.Printf("│ Uptime: %-29s │\n", uptime)
 	}
-	
+
 	if sent, ok := status["bytes_sent"].(string); ok {
 		fmt.Printf("│ Data Sent: %-26s │\n", sent)
 	}
-	
+
 	if received, ok := status["bytes_received"].(string); ok {
 		fmt.Printf("│ Data Received: %-21s │\n", received)
 	}
-	
+
 	fmt.Println("└─────────────────────────────────────────┘")
 }
 
@@ -236,12 +236,12 @@ func (c *CLI) handleConfigShow() error {
 		},
 		"network": map[string]interface{}{
 			"interface": "warp0",
-			"dns": []string{"1.1.1.1", "1.0.0.1"},
-			"mtu": 1280,
-			"timeout": 30,
+			"dns":       []string{"1.1.1.1", "1.0.0.1"},
+			"mtu":       1280,
+			"timeout":   30,
 		},
 		"logging": map[string]string{
-			"level": "info",
+			"level":  "info",
 			"format": "json",
 			"output": "stdout",
 		},
@@ -271,7 +271,7 @@ func (c *CLI) handleConfigSet(args []string) error {
 
 func (c *CLI) handleTestConnectivity() error {
 	fmt.Println("🔍 Testing network connectivity...")
-	
+
 	tests := []struct {
 		name string
 		pass bool
@@ -297,12 +297,12 @@ func (c *CLI) handleTestConnectivity() error {
 
 func (c *CLI) handleTestLatency() error {
 	fmt.Println("⏱️  Testing latency to various endpoints...")
-	
+
 	endpoints := map[string]string{
 		"Cloudflare DNS (1.1.1.1)": "12ms",
 		"Cloudflare DNS (1.0.0.1)": "15ms",
-		"Google DNS (8.8.8.8)": "25ms",
-		"Google DNS (8.8.4.4)": "28ms",
+		"Google DNS (8.8.8.8)":     "25ms",
+		"Google DNS (8.8.4.4)":     "28ms",
 	}
 
 	for endpoint, latency := range endpoints {
@@ -315,7 +315,7 @@ func (c *CLI) handleTestLatency() error {
 
 func (c *CLI) handleTestDNS() error {
 	fmt.Println("🌐 Testing DNS resolution...")
-	
+
 	domains := []string{
 		"cloudflare.com",
 		"google.com",
@@ -334,7 +334,7 @@ func (c *CLI) handleTestDNS() error {
 
 func (c *CLI) handleOptimize() error {
 	fmt.Println("⚡ Optimizing network settings...")
-	
+
 	optimizations := []string{
 		"Setting TCP congestion control to BBR",
 		"Increasing network buffer sizes",
@@ -363,19 +363,19 @@ func (c *CLI) showWelcome() {
 	fmt.Println("│              DARP v1.0.0                │")
 	fmt.Println("│        Cloudflare WARP Client          │")
 	fmt.Println("├─────────────────────────────────────────┤")
-	fmt.Printf("│ Merhaba %-30s │\n", username+"!")
+	fmt.Printf("│ Hello %-31s │\n", username+"!")
 	fmt.Println("├─────────────────────────────────────────┤")
-	fmt.Println("│ DARP - Arch Linux için özel olarak     │")
-	fmt.Println("│ tasarlanmış modüler Cloudflare WARP    │")
-	fmt.Println("│ istemcisi. API anahtarı gerektirmez!   │")
+	fmt.Println("│ DARP - A modular Cloudflare WARP       │")
+	fmt.Println("│ client designed specifically for       │")
+	fmt.Println("│ Arch Linux. No API keys required!      │")
 	fmt.Println("├─────────────────────────────────────────┤")
-	fmt.Println("│ Kullanılabilir komutlar:               │")
-	fmt.Println("│   darp connect    - WARP'a bağlan      │")
-	fmt.Println("│   darp status     - Durumu göster      │")
-	fmt.Println("│   darp test       - Ağ testleri        │")
-	fmt.Println("│   darp optimize   - Ağı optimize et    │")
-	fmt.Println("│   darp config     - Ayarları yönet     │")
-	fmt.Println("│   darp --help     - Yardım göster      │")
+	fmt.Println("│ Available commands:                    │")
+	fmt.Println("│   darp connect    - Connect to WARP    │")
+	fmt.Println("│   darp status     - Show status        │")
+	fmt.Println("│   darp test       - Run network tests  │")
+	fmt.Println("│   darp optimize   - Optimize network   │")
+	fmt.Println("│   darp config     - Manage settings    │")
+	fmt.Println("│   darp --help     - Show help          │")
 	fmt.Println("└─────────────────────────────────────────┘")
 	fmt.Println()
 }
@@ -383,7 +383,7 @@ func (c *CLI) showWelcome() {
 func (c *CLI) getUsername() string {
 	currentUser, err := user.Current()
 	if err != nil {
-		return "Kullanıcı"
+		return "User"
 	}
 	
 	username := currentUser.Username
@@ -391,7 +391,7 @@ func (c *CLI) getUsername() string {
 		username = currentUser.Name
 	}
 	if username == "" {
-		username = "Kullanıcı"
+		username = "User"
 	}
 	
 	return username
